@@ -1,0 +1,9 @@
+.jPopup {
+  z-index: 100002 ;
+}
+
+.jPopup .content {
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 2;
+}

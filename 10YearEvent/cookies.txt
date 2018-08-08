@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+oaksterdamuniversity.com	TRUE	/	FALSE	1999999999	ee_cookie_test	ect5b4bf6e38389d1.03790544
+oaksterdamuniversity.com	TRUE	/	FALSE	1999999999	PHPSESSID	79718fdaccae234f9be7367c7ce2754d
+
