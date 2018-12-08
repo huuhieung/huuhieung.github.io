@@ -838,6 +838,12 @@ button:focus {
     background-size: cover;
     background-position: center center;
 }
+.bg-client2 {
+    position: relative;
+    background-image: url(../images/img-2.jpg);
+    background-size: cover;
+    background-position: center center;
+}
 
 .people_says .people_icon i {
     font-size: 60px;
