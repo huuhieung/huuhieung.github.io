@@ -19,76 +19,54 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/mystyle.css">
         <link rel="stylesheet" href="css/responsive.css">
+        
+        <!--        script for include html-->
+
+<script >
+    function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            elmnt.innerHTML = this.responseText;
+                        }
+                        if (this.status == 404) {
+                            elmnt.innerHTML = "Page not found.";
+                        }
+                        /*remove the attribute, and call this function once more:*/
+                        elmnt.removeAttribute("w3-include-html");
+                        includeHTML();
+                    }
+                }
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+            }
+        }
+    }; 
+    </script>
+
+
+
+<!--        end of script for include html--> 
+        
+        
     </head>
     <body>
         
         <!--================Header Menu Area =================-->
-        <header class="header_area">
-           	<div class="top_menu">
-           		<div class="container">
-           			<div class="top_inner">
-           				<div class="float-left">
-           					
-                            <a href="tel: 0914599663">Hotline 1: 0914.599.663</a>
-                        
-                            <a href="tel: 0868668318">Hotline 2: 0868.668.318</a>
-           					<a href="#">Showroom: Số 6, ngõ 14 Văn La, Hà Đông, Hà Nội</a>
-           				</div>
-           				<div class="float-right">
-           					<ul class="list header_socila">
-           						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-           						<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-           					</ul>
-           				</div>
-           			</div>
-           		</div>
-           	</div>
-            <div class="main_menu" id="mainNav">
-            	<nav class="navbar navbar-expand-lg navbar-light">
-					<div class="container">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""><img src="img/logo-2.png" alt=""></a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-							<ul class="nav navbar-nav menu_nav ml-auto">
-								<li class="nav-item active"><a class="nav-link" href="index.html">Trang chủ</a></li> 
-								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sản phẩm</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="projects.html">Project</a></li>
-										<li class="nav-item"><a class="nav-link" href="tubepnhomkinh.html">Tủ bếp nhôm kính</a></li>
-										<li class="nav-item"><a class="nav-link" href="tubepnhomkinh.html">Tủ bếp nhôm hệ</a></li>
-										<li class="nav-item"><a class="nav-link" href="tubepnhomkinh.html">Tủ bếp gỗ nhựa</a></li>
-										<li class="nav-item"><a class="nav-link" href="tubepnhomkinh.html">Tủ bếp laminate</a></li>
-										<li class="nav-item"><a class="nav-link" href="tubepnhomkinh.html">Tủ bếp acrylic</a></li>
-										<li class="nav-item"><a class="nav-link" href="tubepnhomkinh.html">phụ kiện tủ bếp</a></li>
-										<li class="nav-item"><a class="nav-link" href="project-details.html">Project Details</a></li>
-										<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-									</ul>
-								</li> 
-								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Thông tin thêm</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-										<li class="nav-item"><a class="nav-link" href="blog.html">Bảng giá</a></li>
-										<li class="nav-item"><a class="nav-link" href="blog.html">Tin khuyến mãi</a></li>
-										<li class="nav-item"><a class="nav-link" href="blog.html">Công trình thực tế</a></li>
-										<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-									</ul>
-								</li> 
-								<li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
-							</ul>
-						</div> 
-					</div>
-            	</nav>
-            </div>
-        </header>
-        <!--================Header Menu Area =================-->
+        
+        <div w3-include-html="header.html"></div> 
         
         <!--================Home Banner Area =================-->
         <section class="home_banner_area">
@@ -365,60 +343,7 @@
         <!--================End Clients Logo Area =================-->
         
         <!--================Footer Area =================-->
-        <footer class="footer_area p_120">
-        	<div class="container">
-        		<div class="row footer_inner">
-        			<div class="col-lg-5 col-sm-6">
-        				<aside class="f_widget ab_widget">
-        					<div class="f_title">
-        						<h3>Về chúng tôi</h3>
-        					</div>
-        					<p>Tủ bếp Liên Việt là cửa hàng chuyên thiết kế & thi công tủ bếp chuyên nghiệp. Các dòng sản phẩm chủ đạo như tủ bếp Acrylic, Nhôm kính, Laminate...Chúng tôi sẽ mang lại cho bạn sự hài lòng tuyệt đối.</p>
-        					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://huuhieung.github.io" target="_blank">huuhieung</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-        				</aside>
-        			</div>
-        			<div class="col-lg-4 col-sm-6">
-        				<aside class="f_widget news_widget">
-        					<div class="f_title">
-        						<h3>nhận thông báo</h3>
-        					</div>
-        					<p>Đăng ký để nhận những thông tin ưu đãi mới nhất từ chúng tôi</p>
-        					<div id="mc_embed_signup">
-                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
-                                	<div class="input-group d-flex flex-row">
-                                        <input name="EMAIL" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                        <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>		
-                                    </div>				
-                                    <div class="mt-10 info"></div>
-                                </form>
-                            </div>
-        				</aside>
-        			</div>
-        			<div class="col-lg-3">
-        				<aside class="f_widget social_widget">
-        					<div class="f_title">
-        						<h3>Liên hệ</h3>
-        					</div>
-                           
-        					
-           					
-                            <a href="tel: 0914599663">Hotline 1: 0914.599.663</a>
-                            <br/>
-                        
-                            <a href="tel: 0868668318">Hotline 2: 0868.668.318</a>
-                            <br/>
-           					<a href="#">Showroom: Số 6, ngõ 14 Văn La, Hà Đông, Hà Nội</a>
-        					<ul class="list">
-        						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-        						<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-        					</ul>
-        				</aside>
-        			</div>
-        		</div>
-        	</div>
-        </footer>
+        <div w3-include-html="footer.html"></div> 
         <!--================End Footer Area =================-->
         
         
@@ -444,5 +369,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
         <script src="js/gmaps.min.js"></script>
         <script src="js/theme.js"></script>
+        
+        
+             <script>
+includeHTML();
+</script>
+        
+        
+        
     </body>
 </html>
