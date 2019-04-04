@@ -617,11 +617,11 @@ button:focus {
     max-width: 100%; }
   .categories_post .categories_details {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    background: rgba(34, 34, 34, 0.8);
+    top: 70px;
+    left: 70px;
+    right: 70px;
+    bottom: 70px;
+    background: rgba(34, 34, 34, 0.5);
     color: #fff;
     transition: all 0.3s linear;
     display: flex;
