@@ -1,0 +1,24 @@
+<div class="c-directory m-has-icon m-2-columns">
+        <div class="c-content-box">
+            <div class="directory-inner">
+                <i class="ico-shadow tp tp-road-sign"></i>
+                <h2 class="directory-title"><i class="ico tp tp-road-sign"></i>Tra Cứu <strong>Thông Tin</strong></h2>
+                <div class="directory-content">
+                    <nav class="directory-menu">
+                        <ul>
+                            {% for i in site.data.navigation %}
+                            <li style="font-weight: bold; text-transform: uppercase">{{i.name}}</a>
+                                <ul>
+                                    {% for j in i.sub %}
+                                    <li style="font-weight: normal; text-transform: capitalize"><a href="{{j.link}}">{{j.name}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            {% endfor %}
+                            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>

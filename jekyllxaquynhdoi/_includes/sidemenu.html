@@ -1,0 +1,27 @@
+<nav class="side-menu m-left-side m-show-submenu">
+        <ul>
+            <li ><a href="/">Trang chủ</a>
+            {% for i in site.data.navigation %}
+
+            {% for j in i.sub %}
+            {% if page.url == j.link %}
+            {% assign foo = "m-active" %}
+            {% endif %}
+            {% endfor %}
+
+            <li class = "{{foo}}"><a href="{{i.link}}">{{i.name}}</a>
+                <ul>
+                    {% for j in i.sub %}
+                    {% if page.url == j.link %}
+                    {% assign foo = "m-active" %}
+                    {% else %}
+                    {% assign foo = "" %}
+                    {% endif %}
+                    <li class = "{{foo}}"><a href="{{j.link}}">{{j.name}}</a></li>
+                    {% endfor %}
+                </ul>   
+            </li>
+
+            {% endfor %}
+        </ul>
+    </nav>
